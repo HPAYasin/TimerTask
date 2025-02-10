@@ -1,26 +1,19 @@
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class PeriodicTimer {
+public class IntervalTimer {
     private Timer timer;
 
-    public PeriodicTimer() {
+    public IntervalTimer() {
         timer = new Timer();
     }
 
     public void startTimer(Runnable callback) {
-        timer.scheduleAtFixedRate(new TimerTask() {
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 callback.run();
             }
-        }, 0, 5000);
-    }
-
-    public void stopTimer() {
-        if (timer != null) {
-            timer.cancel();
-            timer = null;
-        }
+        }, 3000);
     }
 }
